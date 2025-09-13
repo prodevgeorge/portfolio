@@ -9,6 +9,8 @@ export default {
       const email = formData.get("email");
       const message = formData.get("message");
       const token = formData.get("cf-turnstile-response");
+      const toEmail = env.CONTACT_EMAIL;
+
 
       // 1. Verify Turnstile
       const verifyResp = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
@@ -31,7 +33,7 @@ export default {
         },
         body: JSON.stringify({
           from: "Website Contact <onboarding@resend.dev>",
-          to: ["georgesuzuki@gmail.com"],   // 👈 replace with your email
+          to: [`${toEmail}`],   // 👈 replace with your email
           subject: `New contact from ${name}`,
           text: `From: ${name} (${email})\n\n${message}`
         })
