@@ -31,7 +31,7 @@ export default {
         },
         body: JSON.stringify({
           from: "Website Contact <onboarding@resend.dev>",
-          to: ["your@email.com"],   // 👈 replace with your email
+          to: ["georgesuzuki@gmail.com"],   // 👈 replace with your email
           subject: `New contact from ${name}`,
           text: `From: ${name} (${email})\n\n${message}`
         })
