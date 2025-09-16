@@ -44,7 +44,7 @@ export default {
       }
 
       // g: c/o return new Response("Message sent successfully!", { status: 200 });
-      return resendResp.ok; // g: add
+      return resendResp; // g: add
     }
 
     // Default 404 for other routes
