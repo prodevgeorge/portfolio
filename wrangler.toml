@@ -3,7 +3,7 @@ main = "index.js"
 compatibility_date = "2025-09-11"
 assets = { directory = "." }
 
-[vars]
+#[vars]
 # Set only placeholders here; override in Cloudflare Dashboard
 # RESEND_API_KEY = "your_resend_key_here"
 # TURNSTILE_SECRET = "your_turnstile_secret_here"
