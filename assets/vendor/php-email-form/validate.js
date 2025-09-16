@@ -59,7 +59,7 @@
       if( response.ok ) {
         return response.text();
       } else {
-        console.log(response);  // g: add
+        console.log(`${response.status} ${response.statusText} ${response.url}`);  // g: add
         throw new Error(`${response.status} ${response.statusText} ${response.url}`); 
       }
     })
