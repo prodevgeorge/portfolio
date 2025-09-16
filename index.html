@@ -1019,19 +1019,54 @@
 
           </div>
         </form><!-- End Contact Form -- >
- -->
-      <!-- ChatGPT code for anti-spam form -->
+      
+      <!-- ChatGPT code for anti-spam form -- >
       <form action="/api/contact" method="POST">
         <label>Name: <input type="text" name="name" required></label><br>
         <label>Email: <input type="email" name="email" required></label><br>
         <label>Message:<br><textarea name="message" required></textarea></label><br>
 
-        <!-- Cloudflare Turnstile widget -->
+        <!-- Cloudflare Turnstile widget -- >
         <div class="cf-turnstile" data-sitekey="0x4AAAAAAB02wNIYvBgKc9MY"></div>
 
         <button type="submit">Send</button>
       </form><!-- /ChatGPT code for anti-spam form -->
  
+        <!-- gmod DevFolio contact form -->
+o       <form action="/api/contact" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
+          <div class="row gy-4">
+
+            <div class="col-md-6">
+              <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+            </div>
+
+            <div class="col-md-6 ">
+              <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+            </div>
+
+            <div class="col-md-12">
+              <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+            </div>
+
+            <div class="col-md-12">
+              <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+            </div>
+
+            <div class="col-md-12 text-center">
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Your message has been sent. Thank you!</div>
+
+              <!-- Cloudflare Turnstile widget -->
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAAB02wNIYvBgKc9MY"></div>
+
+              <button type="submit">Send Message</button>
+            </div>
+
+          </div>
+        </form><!-- End Contact Form -- >
+
+
       </div>
 
     </section><!-- /Contact Section -->
@@ -1056,6 +1091,7 @@
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        2025.09.15 when submitting form, return back to main page. update with bootstrap form. tweak customer's email so subject matches subject input by customer, and reply to is set to customer's email address.
       </div>
     </div>
 
