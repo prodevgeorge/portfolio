@@ -43,8 +43,7 @@ export default {
         return new Response("Failed to send email", { status: 500 });
       }
 
-      // g: c/o return new Response("Message sent successfully!", { status: 200 });
-      return resendResp; // g: add
+      return new Response("Message sent successfully!", { status: 200 });
     }
 
     // Default 404 for other routes
