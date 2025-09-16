@@ -1092,7 +1092,7 @@ o       <form action="/api/contact" method="post" class="php-email-form" data-ao
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        2025.09.15 when submitting form, return back to main page. update with bootstrap form. tweak customer's email so subject matches subject input by customer, and reply to is set to customer's email address.
+        2025.09.15 when submitting form, try to get the error / success message working properly. tweak customer's email so subject matches subject input by customer, and reply to is set to customer's email address.
       </div>
     </div>
 
@@ -1103,6 +1103,9 @@ o       <form action="/api/contact" method="post" class="php-email-form" data-ao
 
   <!-- Preloader -->
   <div id="preloader"></div>
+
+  <!-- g: added Load Turnstile script (to prevent spam) -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -1115,9 +1118,6 @@ o       <form action="/api/contact" method="post" class="php-email-form" data-ao
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-  <!-- g: added Load Turnstile script (to prevent spam) -->
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
