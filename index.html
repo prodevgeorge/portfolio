@@ -1034,7 +1034,7 @@
       </form><!-- /ChatGPT code for anti-spam form -->
  
         <!-- gmod DevFolio contact form -->
-o       <form action="/api/contact" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
+       <form action="/api/contact" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
           <div class="row gy-4">
 
             <div class="col-md-6">
@@ -1054,9 +1054,11 @@ o       <form action="/api/contact" method="post" class="php-email-form" data-ao
             </div>
 
             <div class="col-md-12 text-center">
-              <div class="loading">Loading</div>
+              <!-- <div class="loading">Loading</div>
               <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
+              <div class="sent-message">Your message has been sent. Thank you!</div> -->
+              <div id="response"></div>
+
 
               <!-- Cloudflare Turnstile widget -->
               <div class="cf-turnstile" data-sitekey="0x4AAAAAAB02wNIYvBgKc9MY"></div>
@@ -1107,9 +1109,35 @@ o       <form action="/api/contact" method="post" class="php-email-form" data-ao
   <!-- g: added Load Turnstile script (to prevent spam) -->
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
+  <script>
+      const form = document.getElementById("contactForm");
+      const responseDiv = document.getElementById("response");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault(); // stop page reload
+
+        const formData = new FormData(form);
+
+        try {
+          const res = await fetch("/api/contact", {
+            method: "POST",
+            body: formData
+          });
+
+          const text = await res.text();
+          responseDiv.textContent = text;
+          responseDiv.style.color = res.ok ? "green" : "red";
+
+        } catch (err) {
+          responseDiv.textContent = "Something went wrong. Please try again.";
+          responseDiv.style.color = "red";
+        }
+      });
+    </script>
+
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
