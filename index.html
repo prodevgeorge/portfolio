@@ -1090,17 +1090,17 @@
               <div class="error-message"></div>
               <div class="sent-message">Your message has been sent. Thank you!</div> -->
 
-              <button type="submit" id="sendBtn">Send Message</button>
-              
-              <div id="response"></div>
-
               <!-- Cloudflare Turnstile widget -->
               <div class="cf-turnstile" data-sitekey="0x4AAAAAAB02wNIYvBgKc9MY"></div>              
 
+              <button type="submit" id="sendBtn">Send</button>
+              
             </div>
 
           </div>
         </form><!-- End Contact Form -->
+
+              <div id="response"></div>
 
 
       </div>
@@ -1168,12 +1168,17 @@
 
           if (res.ok) {
             form.reset(); // clear form on success
+            // ✅ Button stays disabled after success
+            sendBtn.innerHTML = "Sent ✔";
+          } else {
+            // ❌ Error — allow retry
+            sendBtn.disabled = false;
+            sendBtn.textContent = "Send";
           }
         } catch (err) {
           responseDiv.textContent = "Something went wrong. Please try again.";
           responseDiv.style.color = "red";
-        } finally {
-          // Restore button
+          // ❌ Allow retry
           sendBtn.disabled = false;
           sendBtn.textContent = "Send";
         }
