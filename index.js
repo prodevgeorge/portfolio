@@ -33,7 +33,7 @@ export default {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          from: `Website Contact <${email}>`, // from: "Website Contact <onboarding@resend.dev>",
+          from: "Website Contact <onboarding@resend.dev>",
           // reply_to: `${email}`,
           to: [env.CONTACT_EMAIL], //to: [`${toEmail}`],   // 👈 replace with your email
           //subject: `New contact from ${name}`,
