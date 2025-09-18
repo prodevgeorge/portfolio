@@ -7,6 +7,7 @@ export default {
       const formData = await request.formData();
       const name = formData.get("name");
       const email = formData.get("email");
+      const subject = formData.get("subject");
       const message = formData.get("message");
       const token = formData.get("cf-turnstile-response");
       //const toEmail = env.CONTACT_EMAIL;
@@ -32,10 +33,11 @@ export default {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          from: "Website Contact <onboarding@resend.dev>",
-          reply_to: `${email}`,
+          from: `Website Contact <${email}>`, // from: "Website Contact <onboarding@resend.dev>",
+          // reply_to: `${email}`,
           to: [env.CONTACT_EMAIL], //to: [`${toEmail}`],   // 👈 replace with your email
-          subject: `New contact from ${name}`,
+          //subject: `New contact from ${name}`,
+          subject: `${subject}`,
           text: `From: ${name} (${email})\n\n${message}`
         })
       });
