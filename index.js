@@ -9,7 +9,7 @@ export default {
       const email = formData.get("email");
       const message = formData.get("message");
       const token = formData.get("cf-turnstile-response");
-      const toEmail = env.CONTACT_EMAIL;
+      //const toEmail = env.CONTACT_EMAIL;
 
 
       // 1. Verify Turnstile
@@ -33,7 +33,8 @@ export default {
         },
         body: JSON.stringify({
           from: "Website Contact <onboarding@resend.dev>",
-          to: [`${toEmail}`],   // 👈 replace with your email
+          reply_to: `${email}`,
+          to: [env.CONTACT_EMAIL], //to: [`${toEmail}`],   // 👈 replace with your email
           subject: `New contact from ${name}`,
           text: `From: ${name} (${email})\n\n${message}`
         })
