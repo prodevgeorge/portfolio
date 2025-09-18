@@ -21,7 +21,7 @@ export default {
       const outcome = await verifyResp.json();
 
       if (!outcome.success) {
-        return new Response("Turnstile verification failed", { status: 403 });
+        return new Response("Verify human failed", { status: 403 }); // Turnstile failed
       }
 
       // 2. Send email via Resend

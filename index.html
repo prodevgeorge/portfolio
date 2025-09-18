@@ -8,38 +8,6 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
 
-
-    <style>
-      #response {
-        margin-top: 1em;
-        font-weight: bold;
-      }
-
-      /* Spinner style */
-      .spinner {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        border: 2px solid #ccc;
-        border-top: 2px solid #333;
-        border-radius: 50%;
-        animation: spin 0.6s linear infinite;
-        vertical-align: middle;
-        margin-left: 6px;
-      }
-
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-
-      /* Disabled button look */
-      button[disabled] {
-        opacity: 0.6;
-        cursor: not-allowed;
-      }
-    </style>
-
   <!-- Favicons -->
   <!-- <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
@@ -985,7 +953,7 @@
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-
+<!-- 
         <div class="info-wrap" data-aos="fade-up" data-aos-delay="200">
           <div class="row gy-5">
 
@@ -997,7 +965,7 @@
                   <p>A108 Adam Street, New York, NY 535022</p>
                 </div>
               </div>
-            </div><!-- End Info Item -->
+            </div><!-- End Info Item -- >
 
             <div class="col-lg-4">
               <div class="info-item d-flex align-items-center">
@@ -1007,7 +975,7 @@
                   <p>+1 5589 55488 55</p>
                 </div>
               </div>
-            </div><!-- End Info Item -->
+            </div><!-- End Info Item -- >
 
             <div class="col-lg-4">
               <div class="info-item d-flex align-items-center">
@@ -1017,11 +985,11 @@
                   <p>info@example.com</p>
                 </div>
               </div>
-            </div><!-- End Info Item -->
+            </div><!-- End Info Item -- >
 
           </div>
         </div>
-      
+       -->
 <!-- og DevFolio contact form
         <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
           <div class="row gy-4">
@@ -1126,7 +1094,7 @@
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        2025.09.15 when submitting form, try to get the error / success message working properly. tweak customer's email so subject matches subject input by customer, and reply to is set to customer's email address.
+        2025.09.17 extract style and scripts from html. tweak customer's email so subject matches subject input by customer, and reply to is set to customer's email address.
       </div>
     </div>
 
@@ -1140,49 +1108,8 @@
 
   <!-- g: added Load Turnstile script (to prevent spam) -->
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-
-    <script>
-      const form = document.getElementById("contactForm");
-      const responseDiv = document.getElementById("response");
-      const sendBtn = document.getElementById("sendBtn");
-
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault(); // stop page reload
-
-        // Disable button + show spinner
-        sendBtn.disabled = true;
-        sendBtn.innerHTML = `Sending<span class="spinner"></span>`;
-
-        const formData = new FormData(form);
-
-        try {
-          const res = await fetch("/api/contact", {
-            method: "POST",
-            body: formData
-          });
-
-          const text = await res.text();
-          responseDiv.textContent = text;
-          responseDiv.style.color = res.ok ? "green" : "red";
-
-          if (res.ok) {
-            form.reset(); // clear form on success
-            // ✅ Button stays disabled after success
-            sendBtn.innerHTML = "Sent ✔";
-          } else {
-            // ❌ Error — allow retry
-            sendBtn.disabled = false;
-            sendBtn.textContent = "Send";
-          }
-        } catch (err) {
-          responseDiv.textContent = "Something went wrong. Please try again.";
-          responseDiv.style.color = "red";
-          // ❌ Allow retry
-          sendBtn.disabled = false;
-          sendBtn.textContent = "Send";
-        }
-      });
-    </script>
+  <script src="assets/js/form.js"></script>
+  
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

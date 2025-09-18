@@ -1806,3 +1806,36 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+
+/*--------------------------------------------------------------
+# ChatGPT form styles
+--------------------------------------------------------------*/
+#response {
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+/* Spinner style */
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ccc;
+  border-top: 2px solid #333;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  vertical-align: middle;
+  margin-left: 6px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Disabled button look */
+button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
